@@ -1,0 +1,21 @@
+version: '3'
+services: 
+  db: 
+    image: ""
+    container_name: database
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db_data:/var/lib/database/data
+    restart: always
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ../..:/workspaces:cached
+    network_mode: service:db
+    command: restart
+    links:
+      - db
+    

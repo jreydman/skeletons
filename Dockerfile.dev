@@ -1,0 +1,18 @@
+FROM node:16-alpine
+
+LABEL author="Pikj [Jreydman] Reyderman <pikj.reyderman@gmail.com>"
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+ENV PORT=3000
+ENV DB_HOST=...
+
+EXPOSE 3000
+
+CMD npm run dev
