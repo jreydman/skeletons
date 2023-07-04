@@ -9,7 +9,9 @@
     "dev": "npx nodemon",
     "build": "rimraf ./build && npx tsc",
     "start": "npx tsc && node build/main",
-    "test": "node --test"
+    "test": "node --test",
+    "lint": "npx eslint ./src",
+    "format": "npx eslint ./src --fix"
   },
   "keywords": [
     "skeleton",
@@ -26,7 +28,11 @@
   ],
   "devDependencies": {
     "@types/node": "^20.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
     "nodemon": "^2.0.22",
+    "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
